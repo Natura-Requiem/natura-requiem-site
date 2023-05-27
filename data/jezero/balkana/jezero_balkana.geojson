@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [17.049236297607425, 44.41529851242463, 0]
+      },
+      "properties": {
+        "name": "point",
+        "styleUrl": "#style-1",
+        "styleHash": "6acbbbb6",
+        "description": "<table class=\"cesium-infoBox-defaultTable\"><tbody><tr><th>name</th><td>point</td></tr><tr><th>latitude</th><td>44.41530°N</td></tr><tr><th>longitude</th><td>17.04924°E</td></tr></tbody></table>",
+        "visibility": "1"
+      },
+      "id": "3908a680-cbbc-451a-8d57-4d33ba8ebd8e"
+    }
+  ]
+}
