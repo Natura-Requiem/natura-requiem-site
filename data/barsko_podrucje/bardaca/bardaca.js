@@ -11,7 +11,9 @@ const bardaca_info_bhs = [
             "",
         facilities_services: "",
         images: [
-            "",
+            "https://storage.bljesak.info//image/354627/1280x880/DSCF3353-2.jpg",
+            "https://www.hotelviktorija.com/wp-content/uploads/2015/05/Rezervat-Bardaca-2.jpg",
+            "https://storage.bljesak.info/image/354623/1280x880/DJI_0969-2-1024x576.jpg",
         ],
     },
 ];

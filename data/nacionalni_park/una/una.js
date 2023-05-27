@@ -11,7 +11,9 @@ const una_info_bhs = [
             "",
         facilities_services: "",
         images: [
-            "",
+            "https://npuna.com/wp-content/uploads/2020/03/ili-ova-za-17-dan-rijeke-une-scaled.jpg",
+            "https://static.klix.ba/media/images/vijesti/160228016.5_xl.jpg",
+            "https://www.pustolovi.com/wp-content/uploads/2016/11/61295269.jpg",
         ],
     },
 ];

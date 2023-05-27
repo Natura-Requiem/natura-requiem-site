@@ -11,7 +11,9 @@ const drina_info_bhs = [
             "",
         facilities_services: "",
         images: [
-            "",
+            "https://visitbih.ba/wp-content/uploads/2021/03/Nacionalni-park-Drina.jpg",
+            "https://cms.bitlab.host/api/data/82/objects/534/nacionalni-park-Drina-10.jpg",
+            "https://visitbih.ba/wp-content/uploads/2021/03/VH-Kanjon-Drine-2017-39.jpg",
         ],
     },
 ];
