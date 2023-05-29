@@ -8,7 +8,7 @@ const kozara_info_bhs = [
         mail: "info@npkozara.com",
         mapsLink: "https://goo.gl/maps/HDLpWPdAZSUGrS248",
         description:
-            "",
+            "Nacionalni park Kozara je spoj prirodnog i kulurno-istorijskog nasljeđa. 'Herojska planina' - čuvena po bitkama za slobodu tokom Drugog svjetskog rata što je ovjekovječeno izgradnjom Memorijalnog kompleksa i nadaleko prepoznatljivog spomenika.",
         facilities_services: "Spomen kompleks, avantura park, pješačke i biciklističke staze, vidikovci, penjališta i skijalište.",
         images: [
             "https://npkozara.com/wp-content/uploads/2022/12/npkozara1024x683.jpg",
