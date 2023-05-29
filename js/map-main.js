@@ -180,6 +180,14 @@ let layerControl = L.control
     .layers(baselayers, overlays, { position: "bottomright" })
     .addTo(map);
 
+map.on("fullscreenchange", function () {
+    if (map.isFullscreen()) {
+        console.log("entered fullscreen");
+        // TODO: zatvoriti prikaz fotografija pri ulasku mape u fullscreen mod
+    } else {
+        console.log("exited fullscreen");
+    }
+});
 
 
 /*
