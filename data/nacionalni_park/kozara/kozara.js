@@ -2,6 +2,7 @@ const kozara_info_bhs = [
     {
         title: "Nacionalni park Kozara",
         location: "Gradovi Prijedor i Gradiška i Opština Kozarska Dubica",
+        latlong: "45.0171009, 16.8975521",
         area: "39.08km²",
         website: "https://npkozara.com/",
         phone: "+38752480680",

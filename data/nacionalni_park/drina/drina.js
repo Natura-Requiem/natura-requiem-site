@@ -2,6 +2,7 @@ const drina_info_bhs = [
     {
         title: "Nacionalni park Drina",
         location: "Opština Srebrenica",
+        latlong: "44.4636754, 15.1308137",
         area: "63.15km²",
         website: "https://npdrina.com/",
         phone: "+38756471021",

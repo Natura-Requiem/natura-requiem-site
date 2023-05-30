@@ -2,6 +2,7 @@ const balkana_info_bhs = [
     {
         title: "Jezero Balkana",
         location: "Opština: Mrkonjić Grad",
+        latlong: "44.4156366, 17.0466238",
         area: "6ha",
         website: "?",
         phone: "?",

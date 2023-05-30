@@ -2,6 +2,7 @@ const una_info_bhs = [
     {
         title: "Nacionalni park Una",
         location: "Grad Bihać",
+        latlong: "44.6947565, 16.0006135",
         area: "350km²",
         website: "https://npuna.com/",
         phone: "+38737221528",

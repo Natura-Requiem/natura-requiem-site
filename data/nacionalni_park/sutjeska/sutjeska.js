@@ -2,6 +2,7 @@ const sutjeska_info_bhs = [
     {
         title: "Nacionalni park Sutjeska",
         location: "Opštine Foča, Gacko i Kalinovik",
+        latlong: "43.3239516, 18.7148583",
         area: "160.15km²",
         website: "https://sutjeskanp.com/",
         phone: "+38758233118",
