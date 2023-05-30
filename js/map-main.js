@@ -1,10 +1,29 @@
 // import podataka
+// TODO: napisati funkciju koja ce automatski ucitavati sve podatke i kreirati markere na mapi
 import { drina_info_bhs } from "../data/nacionalni_park/drina/drina.js";
 import { sutjeska_info_bhs } from "../data/nacionalni_park/sutjeska/sutjeska.js";
 import { una_info_bhs } from "../data/nacionalni_park/una/una.js";
 import { kozara_info_bhs } from "../data/nacionalni_park/kozara/kozara.js";
-import { bardaca_info_bhs } from "../data/barsko_podrucje/bardaca/bardaca.js";
+import { bardaca_info_bhs } from "../data/ramsarska_podrucja/bardaca/bardaca.js";
 import { balkana_info_bhs } from "../data/jezero/balkana/balkana.js";
+import { blidinje_info_bhs } from "../data/jezero/blidinje/blidinje.js";
+import { boracko_info_bhs } from "../data/jezero/boracko/boracko.js";
+import { klinje_info_bhs } from "../data/jezero/klinje/klinje.js";
+import { orlovacko_info_bhs } from "../data/jezero/orlovacko/orlovacko.js";
+import { prokosko_info_bhs } from "../data/jezero/prokosko/prokosko.js";
+import { janj_info_bhs } from "../data/strogi_rezervat/prasuma_janj/prasuma_janj.js";
+import { lom_info_bhs } from "../data/strogi_rezervat/prasuma_lom/prasuma_lom.js";
+import { pecka_info_bhs } from "../data/izletista/pecka/pecka.js";
+import { orlovaca_info_bhs } from "../data/pecina/orlovaca/orlovaca.js";
+import { vaganska_info_bhs } from "../data/pecina/vaganska/vaganska.js";
+import { vjetrenica_info_bhs } from "../data/pecina/vjetrenica/vjetrenica.js";
+import { hutovo_blato_info_bhs } from "../data/ramsarska_podrucja/hutovo_blato/hutovo_blato.js";
+import { livanjsko_polje_info_bhs } from "../data/ramsarska_podrucja/livanjsko_polje/livanjsko_polje.js";
+import { bliha_info_bhs } from "../data/vodopad/bliha/bliha.js";
+import { kocusa_info_bhs } from "../data/vodopad/kocusa/kocusa.js";
+import { kravica_info_bhs } from "../data/vodopad/kravica/kravica.js";
+import { skakavac_info_bhs } from "../data/vodopad/skakavac/skakavac.js";
+import { strbacki_buk_info_bhs } from "../data/vodopad/strbacki_buk/strbacki_buk.js";
 
 
 /*
@@ -195,6 +214,20 @@ map.on("fullscreenchange", function () {
     Dodavanje podataka na mapu
 ===================================================================================================
 */
+// Strogi rezervati
+let strogi_rezervati_group = L.layerGroup().addTo(map);
+layerControl.addOverlay(strogi_rezervati_group, "Strogi rezervati");
+const prasuma_janj_lat = parseFloat(janj_info_bhs[0].latlong.split(",")[0]);
+const prasuma_janj_lng = parseFloat(janj_info_bhs[0].latlong.split(",")[1]);
+let prasuma_janj_marker = L.marker([prasuma_janj_lat, prasuma_janj_lng]).addTo(strogi_rezervati_group);
+prasuma_janj_marker.bindPopup(createGalleryPopup(janj_info_bhs[0]));
+
+const prasuma_lom_lat = parseFloat(lom_info_bhs[0].latlong.split(",")[0]);
+const prasuma_lom_lng = parseFloat(lom_info_bhs[0].latlong.split(",")[1]);
+let prasuma_lom_marker = L.marker([prasuma_lom_lat, prasuma_lom_lng]).addTo(strogi_rezervati_group);
+prasuma_lom_marker.bindPopup(createGalleryPopup(lom_info_bhs[0]));
+
+
 
 // Nacionalni parkovi
 let nacionalni_parkovi_group = L.layerGroup().addTo(map);
@@ -254,11 +287,12 @@ fetch("data/nacionalni_park/sutjeska/sutjeska.geojson").then((response) => {
 });
 
 
-// Barska područja/rezervati
-let barska_podrucja = L.layerGroup().addTo(map);
-layerControl.addOverlay(barska_podrucja, "Barska područja/rezervati");
 
-fetch("data/barsko_podrucje/bardaca/bardaca.geojson").then((response) => {
+// Ramsarska podrucja
+let barska_podrucja = L.layerGroup().addTo(map);
+layerControl.addOverlay(barska_podrucja, "Ramsarska područja");
+
+fetch("data/ramasarsko_podrucje/bardaca/bardaca.geojson").then((response) => {
     response.json().then((data) => {
         let pp_bardaca = L.geoJSON(data, {
             style: {
@@ -271,6 +305,16 @@ fetch("data/barsko_podrucje/bardaca/bardaca.geojson").then((response) => {
         pp_bardaca.bindPopup(createGalleryPopup(bardaca_info_bhs[0]));
     });
 });
+
+const hutovo_blato_lat = parseFloat(hutovo_blato_info_bhs[0].latlong.split(",")[0]);
+const hutovo_blato_lng = parseFloat(hutovo_blato_info_bhs[0].latlong.split(",")[1]);
+let hutovo_blato_marker = L.marker([hutovo_blato_lat, hutovo_blato_lng]).addTo(barska_podrucja);
+hutovo_blato_marker.bindPopup(createGalleryPopup(hutovo_blato_info_bhs[0]));
+
+const livanjsko_polje_lat = parseFloat(livanjsko_polje_info_bhs[0].latlong.split(",")[0]);
+const livanjsko_polje_lng = parseFloat(livanjsko_polje_info_bhs[0].latlong.split(",")[1]);
+let livanjsko_polje_marker = L.marker([livanjsko_polje_lat, livanjsko_polje_lng]).addTo(barska_podrucja);
+livanjsko_polje_marker.bindPopup(createGalleryPopup(livanjsko_polje_info_bhs[0]));
 
 
 // Jezera
@@ -286,3 +330,88 @@ let jezero_balkana_circle = L.circle(jezero_balkana_coord, {
     opacity: 0.65,
     radius: 500,
 }).addTo(jezera);
+
+const blidinje_lat = parseFloat(blidinje_info_bhs[0].latlong.split(",")[0]);
+const blidinje_lng = parseFloat(blidinje_info_bhs[0].latlong.split(",")[1]);
+let jezero_blidinje_marker = L.marker([blidinje_lat, blidinje_lng]).addTo(jezera);
+jezero_blidinje_marker.bindPopup(createGalleryPopup(blidinje_info_bhs[0]));
+
+const boracko_lat = parseFloat(boracko_info_bhs[0].latlong.split(",")[0]);
+const boracko_lng = parseFloat(boracko_info_bhs[0].latlong.split(",")[1]);
+let jezero_boracko_marker = L.marker([boracko_lat, boracko_lng]).addTo(jezera);
+jezero_boracko_marker.bindPopup(createGalleryPopup(boracko_info_bhs[0]));
+
+const klinje_lat = parseFloat(klinje_info_bhs[0].latlong.split(",")[0]);
+const klinje_lng = parseFloat(klinje_info_bhs[0].latlong.split(",")[1]);
+let jezero_klinje_marker = L.marker([klinje_lat, klinje_lng]).addTo(jezera);
+jezero_klinje_marker.bindPopup(createGalleryPopup(klinje_info_bhs[0]));
+
+const orlovacko_lat = parseFloat(orlovacko_info_bhs[0].latlong.split(",")[0]);
+const orlovacko_lng = parseFloat(orlovacko_info_bhs[0].latlong.split(",")[1]);
+let jezero_orlovacko_marker = L.marker([orlovacko_lat, orlovacko_lng]).addTo(jezera);
+jezero_orlovacko_marker.bindPopup(createGalleryPopup(orlovacko_info_bhs[0]));
+
+const prokosko_lat = parseFloat(prokosko_info_bhs[0].latlong.split(",")[0]);
+const prokosko_lng = parseFloat(prokosko_info_bhs[0].latlong.split(",")[1]);
+let jezero_prokosko_marker = L.marker([prokosko_lat, prokosko_lng]).addTo(jezera);
+jezero_prokosko_marker.bindPopup(createGalleryPopup(prokosko_info_bhs[0]));
+
+
+
+// Izletišta
+const pecka_lat = parseFloat(pecka_info_bhs[0].latlong.split(",")[0]);
+const pecka_lng = parseFloat(pecka_info_bhs[0].latlong.split(",")[1]);
+let izletiste_pecka_marker = L.marker([pecka_lat, pecka_lng]).addTo(map);
+izletiste_pecka_marker.bindPopup(createGalleryPopup(pecka_info_bhs[0]));
+
+
+
+// Pećine
+let pecine = L.layerGroup().addTo(map);
+layerControl.addOverlay(pecine, "Pećine");
+
+const orlovaca_lat = parseFloat(orlovaca_info_bhs[0].latlong.split(",")[0]);
+const orlovaca_lng = parseFloat(orlovaca_info_bhs[0].latlong.split(",")[1]);
+let pecina_orlovaca_marker = L.marker([orlovaca_lat, orlovaca_lng]).addTo(pecine);
+pecina_orlovaca_marker.bindPopup(createGalleryPopup(orlovaca_info_bhs[0]));
+
+const vaganska_lat = parseFloat(vaganska_info_bhs[0].latlong.split(",")[0]);
+const vaganska_lng = parseFloat(vaganska_info_bhs[0].latlong.split(",")[1]);
+let pecina_vaganska_marker = L.marker([vaganska_lat, vaganska_lng]).addTo(pecine);
+pecina_vaganska_marker.bindPopup(createGalleryPopup(vaganska_info_bhs[0]));
+
+const vjetrenica_lat = parseFloat(vjetrenica_info_bhs[0].latlong.split(",")[0]);
+const vjetrenica_lng = parseFloat(vjetrenica_info_bhs[0].latlong.split(",")[1]);
+let pecina_vjetrenica_marker = L.marker([vjetrenica_lat, vjetrenica_lng]).addTo(pecine);
+pecina_vjetrenica_marker.bindPopup(createGalleryPopup(vjetrenica_info_bhs[0]));
+
+
+
+// Vodopadi
+let vodopadi = L.layerGroup().addTo(map);
+layerControl.addOverlay(vodopadi, "Vodopadi");
+
+const bliha_lat = parseFloat(bliha_info_bhs[0].latlong.split(",")[0]);
+const bliha_lng = parseFloat(bliha_info_bhs[0].latlong.split(",")[1]);
+let vodopad_bliha_marker = L.marker([bliha_lat, bliha_lng]).addTo(vodopadi);
+vodopad_bliha_marker.bindPopup(createGalleryPopup(bliha_info_bhs[0]));
+
+const kocusa_lat = parseFloat(kocusa_info_bhs[0].latlong.split(",")[0]);
+const kocusa_lng = parseFloat(kocusa_info_bhs[0].latlong.split(",")[1]);
+let vodopad_kocusa_marker = L.marker([kocusa_lat, kocusa_lng]).addTo(vodopadi);
+vodopad_kocusa_marker.bindPopup(createGalleryPopup(kocusa_info_bhs[0]));
+
+const kravica_lat = parseFloat(kravica_info_bhs[0].latlong.split(",")[0]);
+const kravica_lng = parseFloat(kravica_info_bhs[0].latlong.split(",")[1]);
+let vodopad_kravica_marker = L.marker([kravica_lat, kravica_lng]).addTo(vodopadi);
+vodopad_kravica_marker.bindPopup(createGalleryPopup(kravica_info_bhs[0]));
+
+const skakavac_lat = parseFloat(skakavac_info_bhs[0].latlong.split(",")[0]);
+const skakavac_lng = parseFloat(skakavac_info_bhs[0].latlong.split(",")[1]);
+let vodopad_skakavac_marker = L.marker([skakavac_lat, skakavac_lng]).addTo(vodopadi);
+vodopad_skakavac_marker.bindPopup(createGalleryPopup(skakavac_info_bhs[0]));
+
+const strbacki_buk_lat = parseFloat(strbacki_buk_info_bhs[0].latlong.split(",")[0]);
+const strbacki_buk_lng = parseFloat(strbacki_buk_info_bhs[0].latlong.split(",")[1]);
+let vodopad_strbacki_buk_marker = L.marker([strbacki_buk_lat, strbacki_buk_lng]).addTo(vodopadi);
+vodopad_strbacki_buk_marker.bindPopup(createGalleryPopup(strbacki_buk_info_bhs[0]));
